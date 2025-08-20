@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  @apply bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100 antialiased;
+}
+
+/* Reusable card styles */
+.card {
+  @apply rounded-2xl bg-slate-800/70 backdrop-blur border border-slate-700/60 shadow-lg;
+}
+
+/* Glow for unlocked achievements */
+.icon-glow {
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.25);
+}
