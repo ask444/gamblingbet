@@ -20,7 +20,7 @@ export const games: Game[] = [
     id: 'beasts-of-glory',
     title: 'Beasts of Glory',
     thumbnail: '/images/Thumbnail_BeastsOfGlory.png',
-    background: '/images/bg_beasts.jpg',
+    // background: '/images/bg_beasts.jpg',
     deadline: new Date(Date.now() + 36 * 3600 * 1000).toISOString(),
     achievements: {
       icon_10x: true,
@@ -35,7 +35,7 @@ export const games: Game[] = [
     id: '5-lions',
     title: '5 Lions',
     thumbnail: '/images/Thumbnail_5Lions.png',
-    background: '/images/bg_lions.jpg',
+    // background: '/images/bg_lions.jpg',
     deadline: new Date(Date.now() + 12 * 3600 * 1000).toISOString(),
     achievements: {
       icon_10x: true,
@@ -50,7 +50,7 @@ export const games: Game[] = [
     id: 'master-gems',
     title: 'Master Gems',
     thumbnail: '/images/Thumbnail_mastergems.png',
-    background: '/images/bg_gems.jpg',
+    // background: '/images/bg_gems.jpg',
     deadline: new Date(Date.now() + 4 * 3600 * 1000 + 15 * 60 * 1000).toISOString(),
     achievements: {
       icon_10x: false,
@@ -65,7 +65,7 @@ export const games: Game[] = [
     id: 'joker',
     title: 'Joker',
     thumbnail: '/images/Thumbnail_joker.png',
-    background: '/images/bg_joker.jpg',
+    // background: '/images/bg_joker.jpg',
     deadline: new Date(Date.now() + 7 * 3600 * 1000 + 50 * 60 * 1000).toISOString(),
     achievements: {
       icon_10x: true,
@@ -80,7 +80,7 @@ export const games: Game[] = [
     id: 'king-of-alexandria',
     title: 'King of Alexandria',
     thumbnail: '/images/Thumbnail_kingofalexandria.png',
-    background: '/images/bg_egypt.jpg',
+    // background: '/images/bg_egypt.jpg',
     deadline: new Date(Date.now() + 24 * 3600 * 1000 + 5 * 60 * 1000).toISOString(),
     achievements: {
       icon_10x: true,
@@ -95,7 +95,7 @@ export const games: Game[] = [
     id: 'floating-dragon',
     title: 'Floating Dragon',
     thumbnail: '/images/Thumbnail_floatingdragon.png',
-    background: '/images/bg_dragon.jpg',
+    // background: '/images/bg_dragon.jpg',
     deadline: new Date(Date.now() + 2 * 3600 * 1000 + 10 * 60 * 1000).toISOString(),
     achievements: {
       icon_10x: false,
