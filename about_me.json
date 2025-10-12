@@ -1,0 +1,33 @@
+{
+  "name": "Ashok",
+  "role": "Front End Developer",
+  "company": "Ocado Technology",
+  "skills": [
+    "DevOps",
+    "CI/CD",
+    "Cloud Infrastructure",
+    "JavaScript/TypeScript",
+    "Python/Django",
+    "Next.js",
+    "CSS Architecture",
+    "Accessibility",
+    "Mentoring"
+  ],
+  "traits": {
+    "leadership": "visionary and hands-on",
+    "communication": "clear, empowering, iterative",
+    "problemSolving": "methodical and scalable",
+    "design": "inclusive, semantic, reusable"
+  },
+  "interests": [
+    "Web development",
+    "Digital transformation",
+    "Open-source",
+    "Career growth",
+    "Design systems"
+  ],
+  "goals": {
+    "shortTerm": "Refactor form components for accessibility and reuse",
+    "longTerm": "To become a front-end architect, leading the design and implementation of scalable, accessible, and innovative digital experiences"
+  }
+}
