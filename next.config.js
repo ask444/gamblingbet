@@ -10,9 +10,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  images: {
-    // If you later use next/image with remote domains, add them here.
-    // domains: [],
+    webpack: (config) => {
+    config.cache = false;
+    return config;
   },
 };
 

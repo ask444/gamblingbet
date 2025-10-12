@@ -1,0 +1,168 @@
+.container {
+  font-family: 'jetSansRegular', sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  height: 100vh;
+}
+
+.formSection {
+  flex: 5;
+  padding: 2rem;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.labelcls {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.inputField {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 9px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.inputField:focus-visible {
+  border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+}
+
+.passwordWrapper {
+  position: relative;
+}
+
+.passwordWrapper button {
+  position: absolute;
+  right: 0px;
+  top: 38%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.charCount {
+  position: absolute;
+  top: -1.5rem;
+  right: 0;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submitButton {
+  width: 35%;
+  padding: 0.5rem;
+  background-color: #e65c00;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.visualSection {
+  flex: 5;
+  background-color: #e65c00;
+  clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+  position: relative;
+  height: 100vh;
+  overflow: visible;
+}
+
+.visualImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 80%;
+  height: auto;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+.signinlink a {
+  color: #000000;
+  text-decoration: underline;
+}
+
+.signinlink a:hover {
+  color: #333333;
+}
+
+.termTxtFont {
+  font-size: 9px;
+}
+
+.termTxtFont a {
+  color: #000000;
+  text-decoration: underline;
+}
+
+.termTxtFont a:hover {
+  color: #333333;
+}
+
+.bagContent {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .formSection {
+    flex: none;
+    max-width: 100%;
+  }
+
+  .visualSection {
+    display: none;
+  }
+
+  .bagContent {
+    display: block;
+  }
+
+  .formContainer .upperContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    text-align: center;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
+
+}

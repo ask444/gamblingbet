@@ -1,25 +1,58 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@font-face {
+  font-family: 'jetSansRegular';
+  src: url('/fonts/JETSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'jetSansBold';
+  src: url('/fonts/JETSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'jetSansExtraBold';
+  src: url('/fonts/JETSans-ExtraBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
-html, body, #__next {
+html,
+body,
+#__next {
   height: 100%;
+  font-family: 'jetSansRegular', sans-serif;
+  margin: 0;
 }
 
-body {
-  @apply bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100 antialiased;
+.mainContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ddd;
 }
 
-/* Reusable card styles */
-.card {
-  @apply rounded-2xl bg-slate-800/70 backdrop-blur border border-slate-700/60 shadow-lg;
+.contentSection {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
 }
 
-/* Glow for unlocked achievements */
-.icon-glow {
-  box-shadow: 0 0 24px rgba(255, 255, 255, 0.25);
+@media (min-width: 640px) {
+  .contentSection {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  html, body .mainContainer {
+    overflow-y: auto !important;
+  }
 }
