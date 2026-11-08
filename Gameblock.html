@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Collector - PixelCroma Game Studio</title>
+<style>
+  body{margin:0;background:#05102a;color:white;font-family:sans-serif;overflow:hidden;text-align:center}
+  canvas{background:linear-gradient(#0a1a4a,#05102a);display:block;margin:0 auto;border:3px solid #00c8ff;border-radius:20px}
+  #score{font-size:24px;margin:10px;color:#00e5ff}
+  button{padding:12px 28px;background:#00c8ff;color:white;border:none;border-radius:25px;font-size:18px;font-weight:bold;cursor:pointer;margin:10px}
+</style>
+</head>
+<body>
+<div id="score">Score: 0 | Time: 60</div>
+<canvas id="game" width="360" height="640"></canvas>
+<div>
+<button onclick="startGame()">START / RESTART</button>
+<button onclick="shareScore()">Share on WhatsApp</button>
+</div>
+<p style="font-size:12px;color:#88aaff">Reskin: Change logo emoji below to client logo • Touch/move to collect</p>
+
+<script>
+const canvas = document.getElementById('game');
+const ctx = canvas.getContext('2d');
+let score=0,time=60,playing=false,basket={x:150,y:580,w:70,h:15},items=[],gameLoop, timerLoop;
+
+// CHANGE THIS TO CLIENT BRAND - This is your reskin secret!
+// For Chai client: change to '☕' , for Biryani: '🍛' , for client logo use image
+const CLIENT_LOGO = '🎮'; // Good brand
+const BAD_LOGO = '💣'; // Bad - avoid
+const CLIENT_NAME = 'PIXELCROMA';
+
+function startGame(){
+  score=0; time=60; items=[]; basket.x=150; playing=true;
+  clearInterval(gameLoop); clearInterval(timerLoop);
+  gameLoop = setInterval(update, 16);
+  timerLoop = setInterval(()=>{time--; if(time<=0) endGame();},1000);
+}
+
+function endGame(){
+  playing=false; clearInterval(gameLoop); clearInterval(timerLoop);
+  ctx.fillStyle='rgba(0,0,0,0.7)'; ctx.fillRect(0,0,360,640);
+  ctx.fillStyle='#00e5ff'; ctx.font='bold 32px sans-serif';
+  ctx.fillText('Game Over!', 80, 300);
+  ctx.font='20px sans-serif'; ctx.fillText(`Score: ${score} for ${CLIENT_NAME}`, 50, 340);
+  ctx.fillText('Screenshot & send to client!', 40, 370);
+}
+
+canvas.addEventListener('touchmove', e=>{
+  let touch = e.touches[0];
+  let rect = canvas.getBoundingClientRect();
+  basket.x = touch.clientX - rect.left - basket.w/2;
+  e.preventDefault();
+});
+canvas.addEventListener('mousemove', e=>{
+  let rect = canvas.getBoundingClientRect();
+  basket.x = e.clientX - rect.left - basket.w/2;
+});
+
+function update(){
+  ctx.clearRect(0,0,360,640);
+  // Basket
+  ctx.fillStyle='#00c8ff'; ctx.fillRect(basket.x,basket.y,basket.w,basket.h);
+  ctx.fillStyle='#ffffff'; ctx.fillRect(basket.x+10,basket.y-8,basket.w-20,8);
+  
+  // Spawn
+  if(Math.random()<0.06){
+    items.push({x:Math.random()*320, y:-30, type: Math.random()>0.3 ? 'good':'bad', speed: 2+Math.random()*3});
+  }
+  // Move & draw
+  for(let i=items.length-1;i>=0;i--){
+    let it=items[i];
+    it.y+=it.speed;
+    ctx.font='28px sans-serif';
+    ctx.fillText(it.type==='good'?CLIENT_LOGO:BAD_LOGO, it.x, it.y);
+    // Collision
+    if(it.y>basket.y-10 && it.y<basket.y+basket.h+20 && it.x>basket.x-20 && it.x<basket.x+basket.w+20){
+      if(it.type==='good'){ score+=10; } else { score=Math.max(0,score-15); }
+      items.splice(i,1);
+    } else if(it.y>650){ items.splice(i,1); }
+  }
+  document.getElementById('score').innerText=`Score: ${score} | Time: ${time} | Brand: ${CLIENT_NAME}`;
+}
+
+function shareScore(){
+  let text=`I scored ${score} in ${CLIENT_NAME} Brand Collector game! Made by PixelCroma Game Studio - Hyderabad 🎮 Try: pixelcroma.com/games`;
+  window.open(`https://wa.me/?text=${encodeURIComponent(text)}`);
+}
+</script>
+</body>
+</html>
